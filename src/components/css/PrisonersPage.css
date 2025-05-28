@@ -1,0 +1,66 @@
+/* PrisonersPage.css */
+.page-container {
+  padding: 20px;
+  background-color: #2a2a2a;
+  color: white;
+}
+
+.table-container {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th,
+.table td {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 1px solid #444;
+}
+
+.table th {
+  background-color: #333;
+  color: #fff;
+  font-size: 18px;
+}
+
+.table td {
+  background-color: #444;
+}
+
+.table tr:hover {
+  background-color: #555;
+}
+
+.table .case-id {
+  width: 15%;
+}
+
+.table .criminal-id,
+.table .crime,
+.table .status {
+  width: 20%;
+}
+
+.table .name {
+  width: 25%;
+}
+
+.button {
+  background-color: #ff0000;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #e60000;
+}

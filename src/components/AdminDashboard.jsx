@@ -8,9 +8,10 @@ import {
 import Particles from "react-tsparticles";
 import "./styles.css";
 
-const AdminDashboard = () => {
+const Dashboard = () => {
   const navigate = useNavigate();
-  const adminUsername = localStorage.getItem("adminUsername") || "Admin";
+  const username = localStorage.getItem("username") || "User";
+  const role = localStorage.getItem("role") || "admin";
 
   const [darkMode, setDarkMode] = useState(false);
   const [hackerMode, setHackerMode] = useState(false);
@@ -20,34 +21,34 @@ const AdminDashboard = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("isAuthenticated");
-    localStorage.removeItem("adminUsername");
+    localStorage.removeItem("username");
+    localStorage.removeItem("role");
     alert("Successfully logged out!");
     navigate("/");
   };
 
-  // Secret Hacker Mode (Ctrl + Shift + X)
+  // Secret Hacker Mode (Ctrl + Shift + X) - Admin only
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.ctrlKey && event.shiftKey && event.code === "KeyX") {
+      if (role === "admin" && event.ctrlKey && event.shiftKey && event.code === "KeyX") {
         setHackerMode(!hackerMode);
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [hackerMode]);
+  }, [hackerMode, role]);
 
   return (
     <div className={darkMode ? "dashboard dark-mode" : "dashboard"}>
-      {/* Particle Background */}
       <Particles
         options={{
           particles: {
-            number: { value: 100 },
-            color: { value: "#ff0000" },
+            number: { value: role === "admin" ? 100 : 30 },
+            color: { value: hackerMode ? "#00ff00" : "#ff0000" },
             shape: { type: "circle" },
             opacity: { value: 0.2, anim: { enable: true, speed: 0.5 } },
             size: { value: 2, random: true },
-            move: { enable: true, speed: 0.7, direction: "none", outMode: "out" },
+            move: { enable: true, speed: role === "admin" ? 0.7 : 0.3 },
           },
         }}
         style={{
@@ -58,86 +59,74 @@ const AdminDashboard = () => {
         }}
       />
 
-      {/* Logged-in Admin Info */}
       <div className="logged-in-user">
-        <FaUserShield className="user-icon" /> Logged in as: <strong>{adminUsername}</strong>
+        <FaUserShield className="user-icon" /> 
+        Logged in as: <strong>{username}</strong> ({role.replace('_', ' ')})
       </div>
 
-      {/* Dark Mode Toggle */}
-      <button onClick={toggleDarkMode} className="dark-mode-button">
-        {darkMode ? <FaSun /> : <FaMoon />}
-      </button>
+      {role === "admin" && (
+        <button onClick={toggleDarkMode} className="dark-mode-button">
+          {darkMode ? <FaSun /> : <FaMoon />}
+        </button>
+      )}
 
-      {/* Hacker Mode Toggle */}
       {hackerMode && (
         <button className="hacker-mode-button">
           <FaTerminal /> Hacker Mode Active
         </button>
       )}
 
-      {/* Dashboard Title */}
-      <h1 className="glitch">Crime Investigation HQ</h1>
+      <h1 className="glitch">
+        {role === "admin" ? "Crime Investigation HQ" : "Police Portal"}
+      </h1>
 
-      {/* Admin Buttons */}
       <div className="vertical-button-container">
-        {/* Manage Criminals */}
-        <div className="dropdown-section">
-          <button
-            className="glitch-button"
-            onClick={() => setShowCriminalOptions(!showCriminalOptions)}
-          >
-            <FaUserTie /> Manage Criminals
-          </button>
-
-          {showCriminalOptions && (
-            <div className="dropdown-options fade-in">
+        {/* Admin-only Section */}
+        {role === "admin" && (
+          <>
+            <div className="dropdown-section">
               <button
-                className="glitch-sub-button"
-                onClick={() => navigate("/criminals/add")}
+                className="glitch-button"
+                onClick={() => setShowCriminalOptions(!showCriminalOptions)}
               >
-                ➕ Add Criminal
+                <FaUserTie /> Manage Criminals
               </button>
-              <button
-                className="glitch-sub-button"
-                onClick={() => navigate("/criminals/update")}
-              >
-                ✏️ Update Criminal
-              </button>
-              <button
-                className="glitch-sub-button"
-                onClick={() => navigate("/criminals/delete")}
-              >
-                ❌ Delete Criminal
-              </button>
+              {showCriminalOptions && (
+                <div className="dropdown-options fade-in">
+                  <button onClick={() => navigate("/add")}>
+                    ➕ Add Criminal
+                  </button>
+                  <button onClick={() => navigate("/delete")}>
+                    Delete Criminal
+                  </button>
+                </div>
+              )}
             </div>
-          )}
-        </div>
 
-        <button className="glitch-button alert" onClick={() => navigate("/crimes")}>
+            <button className="glitch-button" onClick={() => navigate("/viewPolice")}>
+              <FaUserShield /> Police Officers
+            </button>
+
+            <button className="glitch-button" onClick={() => navigate("/cases")}>
+              <FaFileAlt /> Court Cases
+            </button>
+
+            <button className="glitch-button alert" onClick={() => navigate("/prisoners")}>
+              <FaLock /> Prisoners
+            </button>
+
+            <button className="glitch-button" onClick={() => navigate("/users")}>
+              <FaUsers /> Manage Users
+            </button>
+          </>
+        )}
+
+        {/* Shared Features */}
+        <button className="glitch-button alert" onClick={() => navigate("/viewcrimes")}>
           <FaGavel /> View Crimes
         </button>
 
-        <button className="glitch-button" onClick={() => navigate("/police")}>
-          <FaUserShield /> Police Officers
-        </button>
-
-        <button className="glitch-button" onClick={() => navigate("/cases")}>
-          <FaFileAlt /> Court Cases
-        </button>
-
-        <button className="glitch-button" onClick={() => navigate("/forensics")}>
-          <FaFingerprint /> Forensic Reports
-        </button>
-
-        <button className="glitch-button alert" onClick={() => navigate("/prisoners")}>
-          <FaLock /> Prisoners
-        </button>
-
-        <button className="glitch-button" onClick={() => navigate("/users")}>
-          <FaUsers /> Manage Users
-        </button>
-
-        <button className="glitch-button" onClick={() => navigate("/evidence")}>
+        <button className="glitch-button" onClick={() => navigate("/evidences")}>
           <FaDatabase /> Crime Scene Evidence
         </button>
 
@@ -149,4 +138,4 @@ const AdminDashboard = () => {
   );
 };
 
-export default AdminDashboard;
+export default Dashboard;

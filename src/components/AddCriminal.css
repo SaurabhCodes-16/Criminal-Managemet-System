@@ -1,0 +1,297 @@
+/* AddCriminal.css */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+/* Wrapper for centering the form in the middle of the screen */
+body {
+    background-image: url('/bg-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0; /* Remove default body margin to ensure full coverage */
+    height: 100vh; /* Optional: Set body height to viewport height */
+    overflow: hidden; /* Optional: Prevent scrollbars if content overflows */
+  }
+  
+  .add-criminal-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure wrapper is at least viewport height */
+    /* Remove background properties from here */
+  }
+  
+  /* Centered box containing the form */
+  .add-criminal-box {
+    width: 400px; /* Set width for desktop */
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background to make text readable */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-align: left; /* Align text to the left for form fields */
+  }
+  
+  /* Heading Style */
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+  }
+  
+  /* Form styling */
+  .add-criminal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Group each label and input horizontally */
+  .form-group {
+    display: flex;
+    flex-direction: row; /* Horizontal layout */
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 15px;
+    color: #ddd;
+    width: 35%; /* Adjust label width */
+  }
+  
+  .form-input {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #444;
+    color: #fff;
+    width: 60%; /* Adjust input width */
+    box-sizing: border-box;
+  }
+  
+  .form-input:focus {
+    outline: none;
+    border-color: #5a5a5a;
+    background-color: #555;
+  }
+  
+  /* Submit Button Styling */
+  .submit-btn {
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .add-criminal-box {
+      width: 90%; /* Make the form box responsive on smaller screens */
+      padding: 20px;
+    }
+  
+    .form-group {
+      flex-direction: column; /* Stack labels and inputs vertically on mobile */
+      align-items: flex-start;
+    }
+  
+    .form-group label {
+      width: 100%;
+      margin-bottom: 5px;
+    }
+  
+    .form-input {
+      width: 100%; /* Make the input take up full width on mobile */
+    }
+  
+    h2 {
+      font-size: 22px;
+    }
+  }
+ /* Apply font and basic table styling */
+ 
+
+ .criminal-list-container {
+   padding: 20px;
+   background-color: #0c0c0c;
+   font-family: 'Orbitron', sans-serif;
+   color: #e0e0e0;
+ }
+ 
+ .criminal-list-container h2 {
+   color: #ff007f;
+   text-align: center;
+   margin-bottom: 20px;
+   font-weight: 700;
+   letter-spacing: 2px;
+ }
+ 
+ .criminal-table {
+   font-family: 'Orbitron', sans-serif;
+   font-size: 15px;
+   color: #e0e0e0;
+   background-color: #0a0a0a;
+   width: 100%;
+   border-collapse: collapse;
+   margin-top: 10px;
+   border-radius: 10px;
+   overflow: hidden;
+   box-shadow: 0 0 15px rgba(255, 0, 100, 0.3);
+ }
+ 
+ .criminal-table th,
+ .criminal-table td {
+   border: 1px solid #222;
+   padding: 12px;
+   text-align: left;
+ }
+ 
+ .criminal-table th {
+   background-color: #1f1f1f;
+   font-weight: 700;
+   color: #ff007f;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+ }
+ 
+ .criminal-table tr:nth-child(even) {
+   background-color: #141414;
+ }
+ 
+ .criminal-table tr:hover {
+   background-color: #222;
+   transition: 0.3s ease;
+   color: #ffffff;
+ }
+ 
+ .criminal-table button {
+   font-family: 'Orbitron', sans-serif;
+   padding: 6px 12px;
+   background-color: #ff003c;
+   color: #fff;
+   border: none;
+   cursor: pointer;
+   border-radius: 6px;
+   transition: 0.3s;
+ }
+ 
+ .criminal-table button:hover {
+   background-color: #ff3366;
+   box-shadow: 0 0 5px #ff003c, 0 0 10px #ff3366;
+ }
+ .search-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 15px;
+    font-size: 16px;
+    margin: 0 auto 20px auto;
+    display: block;
+    border-radius: 8px;
+    border: 1px solid #ff007f;
+    background-color: #111;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    box-shadow: 0 0 10px rgba(255, 0, 127, 0.3);
+  }
+  
+  .search-box:focus {
+    outline: none;
+    border-color: #ff3385;
+    box-shadow: 0 0 10px #ff007f, 0 0 20px #ff3385;
+  }
+
+  .view-crimes-container {
+    padding: 2rem;
+    color: #fff;
+    background-color: #121212;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .view-crimes-container h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-shadow: 0 0 5px #ff0000;
+  }
+  
+  .crime-category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .crime-category-buttons button {
+    padding: 0.75rem 1.5rem;
+    background-color: #222;
+    color: #fff;
+    border: 1px solid #444;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .crime-category-buttons button:hover {
+    background-color: #ff0000;
+    color: #fff;
+    transform: scale(1.05);
+  }
+  
+  .search-filter-section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .search-filter-section input,
+  .search-filter-section select {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: none;
+    min-width: 200px;
+    outline: none;
+  }
+  
+  .crimes-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  .crimes-table th,
+  .crimes-table td {
+    padding: 0.75rem 1rem;
+    border: 1px solid #444;
+    text-align: left;
+  }
+  
+  .crimes-table th {
+    background-color: #222;
+    color: #ff4444;
+  }
+  
+  .crimes-table tr:nth-child(even) {
+    background-color: #1e1e1e;
+  }
+  
+  .crimes-table tr:hover {
+    background-color: #333;
+  }
+ 

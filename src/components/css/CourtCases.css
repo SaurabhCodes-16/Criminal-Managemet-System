@@ -1,0 +1,185 @@
+.court-cases-container {
+    padding: 20px;
+    background-color: #1c1c1c;
+    color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+  }
+  
+  .court-cases-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #e63946;
+  }
+  
+  .transparent-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: rgba(0, 0, 0, 0.6); /* Transparent background */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+  }
+  
+  .transparent-table th,
+  .transparent-table td {
+    padding: 15px;
+    text-align: center;
+    font-size: 1em;
+    border: 1px solid #444; /* Added border between cells */
+    word-wrap: break-word; /* Ensure long text wraps within cells */
+  }
+  
+  .transparent-table th {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+  }
+  
+  .transparent-table tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .transparent-table tr:hover {
+    background-color: rgba(255, 99, 71, 0.7);
+  }
+  
+  .transparent-table th, .transparent-table td {
+    min-width: 120px; /* Minimum width to avoid collapsing */
+  }
+  
+  .transparent-table th:nth-child(1),
+  .transparent-table td:nth-child(1) {
+    width: 15%; /* Case ID width */
+  }
+  
+  .transparent-table th:nth-child(2),
+  .transparent-table td:nth-child(2) {
+    width: 25%; /* Criminal Name width */
+  }
+  
+  .transparent-table th:nth-child(3),
+  .transparent-table td:nth-child(3) {
+    width: 20%; /* Officer width */
+  }
+  
+  .transparent-table th:nth-child(4),
+  .transparent-table td:nth-child(4) {
+    width: 15%; /* Status width */
+  }
+  
+  .transparent-table th:nth-child(5),
+  .transparent-table td:nth-child(5) {
+    width: 15%; /* Evidence width */
+  }
+  
+  .transparent-table th:nth-child(6),
+  .transparent-table td:nth-child(6) {
+    width: 10%; /* Prisoner width */
+  }
+  
+  /* Form Layout: Adjusted to single line for inputs */
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Increased gap */
+    justify-content: space-between; /* Distribute evenly */
+  }
+  
+  form select,
+  form input {
+    flex: 1 1 30%; /* 30% width per input */
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: black;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+  }
+  
+  form select:focus,
+  form input:focus {
+    outline: none;
+    border: 2px solid #e63946; /* Highlight with a border on focus */
+  }
+  
+  button[type="submit"] {
+    background-color: #e63946; /* Red */
+    color: white;
+    font-weight: bold;
+    padding: 12px 20px; /* Consistent button size */
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #e53e3e;
+    transform: scale(1.05); /* Slight scale effect on hover */
+  }
+  
+  button[type="submit"]:focus {
+    outline: none;
+    border: 2px solid #fff; /* Add focus effect for accessibility */
+  }
+  
+  /* Status Buttons */
+  .status-button {
+    display: inline-block;
+    padding: 8px 16px; /* Consistent padding */
+    font-size: 1em;
+    color: #fff;
+    border-radius: 5px; /* More rounded corners */
+    text-align: center;
+    min-width: 250px; /* Ensures buttons have a minimum width */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .status-button.active {
+    background-color: #28a745;
+  }
+  
+  .status-button.closed {
+    background-color: #6c757d;
+  }
+  
+  .status-button.prisoner {
+    background-color: #dc3545;
+  }
+  
+  .status-button.bailed {
+    background-color: #ffc107;
+  }
+  
+  .status-button:hover {
+    background-color: inherit;
+    transform: scale(1.05); /* Slight scale effect on hover */
+  }
+  
+  .status-button:focus {
+    outline: none;
+    border: 2px solid #e63946; /* Highlight with a border on focus */
+  }
+  .transparent-table th,
+.transparent-table td {
+  padding: 15px;
+  text-align: center;
+  font-size: 1em;
+  border: 1px solid #444;
+  word-wrap: break-word;
+  /* Ensure content takes up available space */
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
+}
+
+/* Optional: Add some padding around the text within the cell if needed */
+.transparent-table th > *,
+.transparent-table td > * {
+  padding: 5px; /* Adjust the value as needed */
+}
+  

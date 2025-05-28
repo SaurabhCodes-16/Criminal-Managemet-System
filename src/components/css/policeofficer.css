@@ -1,0 +1,116 @@
+/* Police Officers Container */
+.police-officers-container {
+    padding: 20px;
+    background-color: #2f2f2f;
+    overflow-y: auto;
+    color: #fff;
+    border-radius: 8px; /* Adding rounded corners to the container */
+    max-height: 80vh;
+}
+
+/* Search Box */
+.search-box {
+    margin-bottom: 20px; /* Adjusted for spacing */
+    display: flex;
+    justify-content: center;
+}
+
+.search-box input {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 500px; /* Increased width for better UI */
+    border: 1px solid #ccc; /* Added border for better visibility */
+    background-color: #444; /* Background color for the search box */
+    color: #fff;
+}
+
+/* Add Officer Form */
+.add-officer-form input {
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    background-color: #444; /* Matching background color */
+    border: 1px solid #ccc;
+    color: #fff;
+}
+
+.add-officer-form button {
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.add-officer-form button:hover {
+    background-color: #45a049; /* Slightly darker shade on hover */
+}
+
+/* Police Officers Table */
+.police-officers-table {
+    width: 100%;
+    margin-top: 30px; /* Increased spacing */
+    border-collapse: collapse;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for table */
+    border-radius: 8px; /* Rounded corners for the table */
+    overflow:auto;
+}
+
+.police-officers-table th, .police-officers-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.police-officers-table th {
+    background-color: #333;
+    color: white;
+    font-size: 18px; /* Slightly larger text for headers */
+    text-transform: uppercase; /* Capitalize table headers */
+}
+
+.police-officers-table td {
+    font-size: 16px;
+}
+
+.police-officers-table tr:hover {
+    background-color: #444; /* Highlight row on hover */
+}
+
+/* Action Button in Table */
+.police-officers-table td button {
+    padding: 8px 16px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.police-officers-table td button:hover {
+    background-color: #e53935; /* Darker shade on hover */
+}
+
+/* Responsive Design for Small Screens */
+@media (max-width: 768px) {
+    .police-officers-table th, .police-officers-table td {
+        padding: 8px; /* Reduced padding for smaller screens */
+    }
+
+    .police-officers-table {
+        font-size: 14px; /* Slightly smaller font on small screens */
+    }
+
+    .search-box input {
+        max-width: 100%; /* Allow search box to fill width on small screens */
+    }
+}
