@@ -18,28 +18,30 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     console.log("Role selected:", role); // Debugging line
-
+  
     try {
       const response = await axios.post("http://localhost:8000/login", {
         role,
         username,
         password,
       });
-
+  
       if (response.data.login) {
         localStorage.setItem("isAuthenticated", "true");
         localStorage.setItem("username", username);
         localStorage.setItem("role", role);
-
+  
         toast.success("Login successful!", { position: "top-center" });
-
+        alert("Login Successful");
+  
         // Redirect based on role
-        if (role === "admin") {
+        if (role == "admin") {
           navigate("/dashboard");
-        } else if (role === "police_officer") {
-          navigate("/PoliceDashboard");
+        } else if (role == "Officer") {  // Make sure it matches the dropdown value
+          navigate("/dashboard");
         }
       } else {
+        alert("Invalid Username or Password");
         toast.error(response.data.msg, { position: "top-center" });
       }
     } catch (error) {
@@ -47,6 +49,7 @@ const LoginPage = () => {
       toast.error("Login failed. Check credentials!", { position: "top-center" });
     }
   };
+  
 
   return (
     <div style={styles.container}>
@@ -54,12 +57,12 @@ const LoginPage = () => {
       <div style={styles.form}>
         <select value={role} onChange={(e) => setRole(e.target.value)} style={styles.select}>
           <option value="admin">Admin</option>
-          <option value="police_officer">Police Officer</option>
+          <option value="Officer">Officer</option>
         </select>
 
         <input
           type="text"
-          placeholder={role === "admin" ? "Admin Username" : "Police ID"}
+          placeholder={role === "admin" ? "Admin Username" : "Officer Username"}
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           style={styles.input}
